@@ -23,12 +23,6 @@ export const profileConfig: ProfileConfig = {
 	// showName: true 时显示图标和名称，false 时只显示图标
 	links: [
 		{
-			name: "WhatsApp",
-			icon: "fa7-brands:whatsapp-square",
-			url: "https://api.whatsapp.com/send/?phone=13527063419&text=Hello",
-			showName: false,
-		},
-		{
 			name: "GitHub",
 			icon: "fa7-brands:github",
 			url: "https://github.com/",
@@ -47,8 +41,14 @@ export const profileConfig: ProfileConfig = {
 			showName: false,
 		},
 		{
+			name: "cnb",
+			icon: "tdesign:logo-cnb-filled",
+			url: "https://api.whatsapp.com/send/?phone=13527063419&text=Hello",
+			showName: false,
+		},
+		{
 			name: "Telegram",
-			icon: "logos:telegram",
+			icon: "lineicons:telegram",
 			url: "https://t.me/seasir_Bot",
 			showName: false,
 		},

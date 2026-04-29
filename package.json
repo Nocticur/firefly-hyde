@@ -79,9 +79,10 @@
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.7",
     "@biomejs/biome": "2.4.13",
-    "@iconify-json/logos": "^1.2.11",
+    "@iconify-json/lineicons": "^1.2.6",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/svg-spinners": "^1.2.4",
+    "@iconify-json/tdesign": "^1.2.14",
     "@iconify/types": "^2.0.0",
     "@rollup/plugin-yaml": "^4.1.2",
     "@tailwindcss/vite": "^4.2.4",
