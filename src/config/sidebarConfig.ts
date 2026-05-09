@@ -131,7 +131,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			showOnPostPage: false,
 		},
 		{
-			// 组件类型：节假日倒计时组件
+			// 组件类型：时间进度组件
 			type: "schedule",
 			// 是否启用该组件
 			enable: true,
@@ -226,6 +226,14 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			enable: true,
 			// 是否在文章详情页显示
 			showOnPostPage: true,
+		},
+		{
+			// 组件类型：时间进度组件
+			type: "schedule",
+			// 是否启用该组件
+			enable: true,
+			// 是否在文章详情页显示
+			showOnPostPage: false,
 		},
 	],
 };

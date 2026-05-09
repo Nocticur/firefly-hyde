@@ -1,3 +1,4 @@
+<!-- 时间进度组件 -->
 ---
 import WidgetLayout from "@/components/common/WidgetLayout.astro";
 
@@ -10,33 +11,33 @@ const { class: className, style } = Astro.props;
 ---
 
 <WidgetLayout id="schedule-widget" class={className} style={style}>
-  <div class="schedule-container">
+  <div class="schedule-container" data-schedule-id="schedule-${Math.random().toString(36).substr(2, 9)}">
     <!-- 进度区域 -->
     <div class="progress-section space-y-4">
       <!-- 本年进度 -->
       <div class="progress-item flex items-center gap-3">
-        <span class="text-[14px] font-semibold text-(--primary) shrink-0 w-[60px]" id="year-progress">--%</span>
+        <span class="text-[14px] font-semibold text-(--primary) shrink-0 w-[60px] year-progress">--%</span>
         <div class="flex-1 min-w-0">
-          <span class="text-sm text-neutral-700 dark:text-neutral-300" id="year-days-left">本年还剩 -- 天</span>
-          <progress max="365" id="pBar_year" value="0" class="schedule-progress-bar"></progress>
+          <span class="text-sm text-neutral-700 dark:text-neutral-300 year-days-left">本年还剩 -- 天</span>
+          <progress max="365" class="schedule-progress-bar pBar_year" value="0"></progress>
         </div>
       </div>
 
       <!-- 本月进度 -->
       <div class="progress-item flex items-center gap-3">
-        <span class="text-[14px] font-semibold text-(--primary) shrink-0 w-[60px]" id="month-progress">--%</span>
+        <span class="text-[14px] font-semibold text-(--primary) shrink-0 w-[60px] month-progress">--%</span>
         <div class="flex-1 min-w-0">
-          <span class="text-sm text-neutral-700 dark:text-neutral-300" id="month-days-left">本月还剩 -- 天</span>
-          <progress max="31" id="pBar_month" value="0" class="schedule-progress-bar"></progress>
+          <span class="text-sm text-neutral-700 dark:text-neutral-300 month-days-left">本月还剩 -- 天</span>
+          <progress max="31" class="schedule-progress-bar pBar_month" value="0"></progress>
         </div>
       </div>
 
       <!-- 本周进度 -->
       <div class="progress-item flex items-center gap-3">
-        <span class="text-[14px] font-semibold text-(--primary) shrink-0 w-[60px]" id="week-progress">--%</span>
+        <span class="text-[14px] font-semibold text-(--primary) shrink-0 w-[60px] week-progress">--%</span>
         <div class="flex-1 min-w-0">
-          <span class="text-sm text-neutral-700 dark:text-neutral-300" id="week-days-left">本周还剩 -- 天</span>
-          <progress max="7" id="pBar_week" value="0" class="schedule-progress-bar"></progress>
+          <span class="text-sm text-neutral-700 dark:text-neutral-300 week-days-left">本周还剩 -- 天</span>
+          <progress max="7" class="schedule-progress-bar pBar_week" value="0"></progress>
         </div>
       </div>
     </div>
@@ -44,9 +45,9 @@ const { class: className, style } = Astro.props;
     <!-- 节假日倒计时区域 -->
     <div class="holiday-section mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700">
       <div class="text-center">
-        <p class="text-base font-semibold text-neutral-700 dark:text-neutral-300 mb-0" id="nearest-holiday-full">距离 --</p>
-        <p class="text-4xl font-bold text-(--primary) mb-2" id="nearest-holiday-days">--</p>
-        <p class="text-xs text-neutral-500 dark:text-neutral-400" id="nearest-holiday-date">--</p>
+        <p class="text-base font-semibold text-neutral-700 dark:text-neutral-300 mb-0 nearest-holiday-full">距离 --</p>
+        <p class="text-4xl font-bold text-(--primary) mb-2 nearest-holiday-days">--</p>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 nearest-holiday-date">--</p>
       </div>
     </div>
   </div>
@@ -192,46 +193,78 @@ const { class: className, style } = Astro.props;
       }
     }
 
-    // 更新DOM
-    document.getElementById('pBar_year').value = yearPassedDays;
-    document.getElementById('pBar_month').value = monthPassedDays;
-    document.getElementById('pBar_week').value = weekPassedDays;
-    
-    // 更新进度百分比显示
-    const yearProgressEl = document.getElementById('year-progress');
-    const monthProgressEl = document.getElementById('month-progress');
-    const weekProgressEl = document.getElementById('week-progress');
-    
-    const yearDaysLeftEl = document.getElementById('year-days-left');
-    const monthDaysLeftEl = document.getElementById('month-days-left');
-    const weekDaysLeftEl = document.getElementById('week-days-left');
+    // 更新所有 Schedule 组件实例
+    const containers = document.querySelectorAll('.schedule-container');
+    containers.forEach(container => {
+      // 更新进度条
+      const pBarYear = container.querySelector('.pBar_year');
+      const pBarMonth = container.querySelector('.pBar_month');
+      const pBarWeek = container.querySelector('.pBar_week');
+      
+      if (pBarYear) pBarYear.value = yearPassedDays;
+      if (pBarMonth) pBarMonth.value = monthPassedDays;
+      if (pBarWeek) pBarWeek.value = weekPassedDays;
+      
+      // 更新进度百分比显示
+      const yearProgressEl = container.querySelector('.year-progress');
+      const monthProgressEl = container.querySelector('.month-progress');
+      const weekProgressEl = container.querySelector('.week-progress');
+      
+      const yearDaysLeftEl = container.querySelector('.year-days-left');
+      const monthDaysLeftEl = container.querySelector('.month-days-left');
+      const weekDaysLeftEl = container.querySelector('.week-days-left');
 
-    if (yearProgressEl) yearProgressEl.textContent = yearProgress + '%';
-    if (monthProgressEl) monthProgressEl.textContent = monthProgress + '%';
-    if (weekProgressEl) weekProgressEl.textContent = weekProgress + '%';
-    
-    if (yearDaysLeftEl) yearDaysLeftEl.textContent = `本年还剩 ${yearDaysLeft} 天`;
-    if (monthDaysLeftEl) monthDaysLeftEl.textContent = `本月还剩 ${monthDaysLeft} 天`;
-    if (weekDaysLeftEl) weekDaysLeftEl.textContent = `本周还剩 ${weekDaysLeft} 天`;
-    
-    document.getElementById('nearest-holiday-full').textContent = `距离${nearestHoliday.name}节`;
-    document.getElementById('nearest-holiday-days').textContent = nearestHoliday.days;
-    document.getElementById('nearest-holiday-date').textContent = nearestHoliday.date;
+      if (yearProgressEl) yearProgressEl.textContent = yearProgress + '%';
+      if (monthProgressEl) monthProgressEl.textContent = monthProgress + '%';
+      if (weekProgressEl) weekProgressEl.textContent = weekProgress + '%';
+      
+      if (yearDaysLeftEl) yearDaysLeftEl.textContent = `本年还剩 ${yearDaysLeft} 天`;
+      if (monthDaysLeftEl) monthDaysLeftEl.textContent = `本月还剩 ${monthDaysLeft} 天`;
+      if (weekDaysLeftEl) weekDaysLeftEl.textContent = `本周还剩 ${weekDaysLeft} 天`;
+      
+      const holidayFull = container.querySelector('.nearest-holiday-full');
+      const holidayDays = container.querySelector('.nearest-holiday-days');
+      const holidayDate = container.querySelector('.nearest-holiday-date');
+      
+      if (holidayFull) holidayFull.textContent = `距离${nearestHoliday.name}节`;
+      if (holidayDays) holidayDays.textContent = nearestHoliday.days;
+      if (holidayDate) holidayDate.textContent = nearestHoliday.date;
+    });
+  };
+
+  // 轮询检查DOM元素是否存在
+  const waitForElement = (callback, maxAttempts = 50, interval = 100) => {
+    let attempts = 0;
+    const check = () => {
+      // 检查关键DOM元素是否存在（使用类选择器）
+      if (document.querySelector('.schedule-container')) {
+        callback();
+      } else if (attempts < maxAttempts) {
+        attempts++;
+        setTimeout(check, interval);
+      }
+    };
+    check();
   };
 
   // 初始化
-  calculateProgress();
-
-  // 每天更新
-  const now = new Date();
-  const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
-  let dayTimer = setTimeout(function updateDaily() {
+  const init = () => {
     calculateProgress();
-    const nextDay = new Date();
-    nextDay.setDate(nextDay.getDate() + 1);
-    nextDay.setHours(0, 0, 0, 0);
-    dayTimer = setTimeout(updateDaily, nextDay - new Date());
-  }, tomorrow - now);
+
+    // 每天更新
+    const now = new Date();
+    const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
+    dayTimer = setTimeout(function updateDaily() {
+      calculateProgress();
+      const nextDay = new Date();
+      nextDay.setDate(nextDay.getDate() + 1);
+      nextDay.setHours(0, 0, 0, 0);
+      dayTimer = setTimeout(updateDaily, nextDay - new Date());
+    }, tomorrow - now);
+  };
+
+  // 使用轮询等待DOM元素就绪
+  waitForElement(init);
 
   // 清理
   const cleanup = () => {

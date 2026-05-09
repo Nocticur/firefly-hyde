@@ -1,3 +1,4 @@
+<!-- 顶部滚动条组件 --> 
 ---
 ---
 
@@ -5,9 +6,7 @@
 
 <script is:inline>
 (function () {
-    const progressBar = document.getElementById('scroll-progress-bar');
-    if (!progressBar) return;
-
+    let progressBar = null;
     let cachedScrollHeight = 0;
     let cachedClientHeight = 0;
 
@@ -33,6 +32,11 @@
 
     function handleScroll() {
         requestAnimationFrame(function() {
+            if (!progressBar) {
+                progressBar = document.getElementById('scroll-progress-bar');
+                if (!progressBar) return;
+            }
+
             if (cachedScrollHeight === 0 || cachedClientHeight === 0) {
                 cachedScrollHeight = document.documentElement.scrollHeight;
                 cachedClientHeight = document.documentElement.clientHeight;
@@ -55,14 +59,23 @@
 
     const throttledHandleScroll = throttle(handleScroll, 50);
 
-    // Initial calculation
-    handleScroll();
+    function init() {
+        // Initial calculation
+        handleScroll();
 
-    // Add scroll listener
-    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
+        // Add scroll listener
+        window.addEventListener('scroll', throttledHandleScroll, { passive: true });
 
-    // Add resize listener
-    window.addEventListener('resize', handleResize, { passive: true });
+        // Add resize listener
+        window.addEventListener('resize', handleResize, { passive: true });
+    }
+
+    // Ensure DOM is fully loaded before initialization
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 })();
 </script>
 
