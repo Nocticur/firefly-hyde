@@ -98,7 +98,7 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 			},
 			{
 				name: "个人主页",
-				url: "https://www.seasir.top/",
+				url: "https://home.seasir.top/",
 				external: true,
 				icon: "material-symbols:page-footer-outline",
 			},

@@ -518,7 +518,7 @@ const getVideoSrc = (videoUrl: string): string => {
 
 <script is:inline>
 	// 轮播图交互逻辑
-	document.addEventListener('DOMContentLoaded', () => {
+	const initCarousels = () => {
 		// 获取所有轮播容器
 		const carouselContainers = document.querySelectorAll('.carousel-container');
 		
@@ -656,5 +656,12 @@ const getVideoSrc = (videoUrl: string): string => {
 			updateCarousel(0);
 			startAutoPlay();
 		});
-	});
+	};
+
+	// 如果 DOM 已经加载完成，立即执行初始化
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initCarousels);
+	} else {
+		initCarousels();
+	}
 </script>
