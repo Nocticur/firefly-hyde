@@ -86,6 +86,26 @@ export const friendsConfig: FriendLink[] = [
 		weight: 8,
 		enabled: true,
 	},
+	{
+		title: "楠枝小笺",
+		imgurl:
+			"https://nannax.top/upload/IMG_20260412_164454.ico",
+		desc: "安安静静地存在，就已经很好了。",
+		siteurl: "https://www.nannax.top/",
+		tags: [""],
+		weight: 8,
+		enabled: true,
+	},
+	{
+		title: "Yubendan",
+		imgurl:
+			"https://yubendan.com/_astro/avatar.DVGZ46-Q_1TAarN.webp",
+		desc: "内心充盈者，独行也如众。",
+		siteurl: "https://yubendan.com/",
+		tags: [""],
+		weight: 8,
+		enabled: true,
+	},
 ];
 
 // 获取启用的友链并进行排序

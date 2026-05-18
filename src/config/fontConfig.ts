@@ -5,7 +5,7 @@ export const fontConfig = {
 	// 是否预加载字体文件
 	preload: true,
 	// 当前选择的字体，支持多个字体组合
-	selected: ["tsukushi-bold"],
+	selected: ["Chikushi-A-maru"],
 
 	// 字体列表
 	// 推荐使用可靠的 CDN 服务商提供的字体链接，它天然做了按需分片加载，且性能较好
@@ -14,11 +14,11 @@ export const fontConfig = {
 	// 如果进行字体子集化处理，会导致动态内容（如评论，Bangumi等）无法正确显示字体，因此不推荐使用本地字体文件
 	fonts: {
 		// 本地字体 - Tsukushi A Rd Gothic Bold
-		"tsukushi-bold": {
-			id: "tsukushi-bold",
-			name: "Tsukushi A Rd Gothic Bold",
-			src: "/fonts/TsukuARdGothicStd-Bold.woff2",
-			family: "Tsukushi A Rd Gothic",
+		"Chikushi-A-maru": {
+			id: "Chikushi-a-maru",
+			name: "筑紫A丸",
+			src: "/fonts/Chikushi-A-maru.woff2",
+			family: "Chikushi A Rd Gothic",
 			weight: 700,
 			display: "swap" as const,
 		},
