@@ -117,104 +117,41 @@ main:
               > **仓库地址:** [$CNB_REPO_URL_HTTPS]($CNB_REPO_URL_HTTPS)            
               > **我的网站:** [seasir.top](https://seasir.top/)
 
-
-        - name: 📢 飞书发布通知
+        - name: 📢 发布通知到飞书
           image: tencentcom/feishu-message
-
           settings:
             robot: $ROBOT
             msg_type: interactive
-
             card: |
               {
-                "config": {
-                  "wide_screen_mode": true
-                },
-
-                "header": {
-                  "template": "green",
-                  "title": {
-                    "tag": "plain_text",
-                    "content": "🎉 Firefly-Hyde 发布成功"
-                  }
-                },
-
-                "elements": [
-                  {
-                    "tag": "div",
-                    "fields": [
+                  "elements": [
                       {
-                        "is_short": true,
-                        "text": {
-                          "tag": "lark_md",
-                          "content": "**构建时间**\n$CUSTOM_ENV_DATE_INFO"
-                        }
+                          "tag": "div",
+                          "text": {
+                              "content": "**西湖**，位于浙江省杭州市西湖区龙井路1号，杭州市区西部，景区总面积49平方千米，汇水面积为21.22平方千米，湖面面积为6.38平方千米。",
+                              "tag": "lark_md"
+                          }
                       },
                       {
-                        "is_short": true,
-                        "text": {
-                          "tag": "lark_md",
-                          "content": "**构建 ID**\n$CNB_BUILD_ID"
-                        }
-                      },
-                      {
-                        "is_short": true,
-                        "text": {
-                          "tag": "lark_md",
-                          "content": "**提交 ID**\n$CNB_COMMIT_SHORT"
-                        }
-                      },
-                      {
-                        "is_short": true,
-                        "text": {
-                          "tag": "lark_md",
-                          "content": "**构建分支**\n$CNB_BRANCH"
-                        }
-                      },
-                      {
-                        "is_short": false,
-                        "text": {
-                          "tag": "lark_md",
-                          "content": "**提交信息**\n$CNB_COMMIT_MESSAGE_TITLE"
-                        }
-                      },
-                      {
-                        "is_short": true,
-                        "text": {
-                          "tag": "lark_md",
-                          "content": "**提交者**\n$CNB_COMMITTER"
-                        }
+                          "actions": [
+                              {
+                                  "tag": "button",
+                                  "text": {
+                                      "content": "更多景点介绍 :玫瑰:",
+                                      "tag": "lark_md"
+                                  },
+                                  "url": "https://seasir.top/",
+                                  "type": "default",
+                                  "value": {}
+                              }
+                          ],
+                          "tag": "action"
                       }
-                    ]
-                  },
-
-                  {
-                    "tag": "hr"
-                  },
-
-                  {
-                    "tag": "action",
-                    "actions": [
-                      {
-                        "tag": "button",
-                        "text": {
-                          "tag": "plain_text",
-                          "content": "📦 查看仓库"
-                        },
-                        "type": "primary",
-                        "url": "$CNB_REPO_URL_HTTPS"
-                      },
-                      {
-                        "tag": "button",
-                        "text": {
-                          "tag": "plain_text",
-                          "content": "🌐 访问网站"
-                        },
-                        "type": "default",
-                        "url": "https://seasir.top/"
+                  ],
+                  "header": {
+                      "title": {
+                          "content": "今日旅游推荐",
+                          "tag": "plain_text"
                       }
-                    ]
                   }
-                ]
               }
-
