@@ -292,6 +292,8 @@ export default defineConfig({
 			assetsInlineLimit: 4096,
 			// 生成 sourcemap（生产环境禁用以减小体积）
 			sourcemap: false,
+			// 提高 chunk 大小警告阈值到 600KB
+			chunkSizeWarningLimit: 1500,
 		},
 		// 性能优化配置
 		optimizeDeps: {

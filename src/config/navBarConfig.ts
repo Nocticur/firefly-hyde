@@ -45,15 +45,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 			// 根据配置决定是否添加日记，在siteConfig关闭pages.diary时导航栏不显示日记
 			...(siteConfig.pages.diary ? [LinkPreset.Diary] : []),
-
-			// 根据配置决定是否添加项目，在siteConfig关闭pages.projects时导航栏不显示项目
-			...(siteConfig.pages.projects ? [LinkPreset.Projects] : []),
-
-			// 根据配置决定是否添加时间线，在siteConfig关闭pages.timeline时导航栏不显示时间线
-			...(siteConfig.pages.timeline ? [LinkPreset.Timeline] : []),
-
-			// 根据配置决定是否添加技能，在siteConfig关闭pages.skills时导航栏不显示技能
-			...(siteConfig.pages.skills ? [LinkPreset.Skills] : []),
 		],
 	});
 
@@ -63,14 +54,28 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		url: "/content/",
 		icon: "material-symbols:info",
 		children: [
-			// 根据配置决定是否添加番组计划，在siteConfig关闭pages.bangumi时导航栏不显示番组计划
-			...(siteConfig.pages.bangumi ? [LinkPreset.Bangumi] : []),
-
 			// 根据配置决定是否添加赞助，在siteConfig关闭pages.sponsor时导航栏不显示赞助
 			...(siteConfig.pages.sponsor ? [LinkPreset.Sponsor] : []),
 
 			// 关于页面
 			LinkPreset.About,
+		],
+	});
+
+	// 其他及其子菜单
+	links.push({
+		name: "其他",
+		url: "/other/",
+		icon: "material-symbols:more-horiz",
+		children: [
+			// 根据配置决定是否添加项目，在siteConfig关闭pages.projects时导航栏不显示项目
+			...(siteConfig.pages.projects ? [LinkPreset.Projects] : []),
+
+			// 根据配置决定是否添加时间线，在siteConfig关闭pages.timeline时导航栏不显示时间线
+			...(siteConfig.pages.timeline ? [LinkPreset.Timeline] : []),
+
+			// 根据配置决定是否添加技能，在siteConfig关闭pages.skills时导航栏不显示技能
+			...(siteConfig.pages.skills ? [LinkPreset.Skills] : []),
 		],
 	});
 

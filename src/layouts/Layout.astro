@@ -8,8 +8,9 @@ import FontManager from "@components/features/FontManager.astro";
 import MusicManager from "@components/features/MusicManager.astro";
 import SakuraEffect from "@components/features/SakuraEffect.astro";
 import ScrollProgressBar from "@components/features/ScrollProgressBar.astro";
-import TitleChange from "@components/features/TitleChange.astro";
+import TitleChange from "@components/features/TitleChange.astro"; //网页标题切换组件
 import ConfigCarrier from "@components/layout/ConfigCarrier.astro";
+import CopyMessage from "@components/common/CopyMessage.svelte"; //复制内容提示组件
 
 import {
 	backgroundWallpaper,
@@ -590,6 +591,9 @@ const siteLang = lang.replace("_", "-");
 
     <!-- Fancybox Manager -->
     <FancyboxManager />
+
+    <!-- 复制内容提示组件 -->
+    <CopyMessage client:load />
   </body>
 </html>
 
