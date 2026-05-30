@@ -55,7 +55,8 @@ export const ru: Translation = {
 	[Key.friends]: "Ссылки",
 	[Key.friendsDescription]:
 		"Вот мои друзья, добро пожаловать посетить и общаться друг с другом",
-	[Key.friendsSearchPlaceholder]: "Поиск друзей по имени или описанию...",
+	[Key.searchFriends]: "Поиск друзей...",
+	[Key.friendsEmpty]: "Друзей пока нет.",
 	[Key.guestbook]: "Гостевая книга",
 	[Key.guestbookDescription]:
 		"Добро пожаловать, оставьте свой след здесь, поделитесь своими мыслями и предложениями",
@@ -124,6 +125,9 @@ export const ru: Translation = {
 	[Key.bangumiEmpty]: "Нет данных",
 	[Key.bangumiEmptyReason]:
 		"Возможные причины: имя пользователя не существует, проблема с подключением к сети или ограничение API",
+	[Key.bangumiFetchError]: "Ошибка загрузки данных Bangumi",
+	[Key.bangumiFetchErrorDesc]:
+		"Не удалось загрузить данные из Bangumi API при сборке. Эта страница временно недоступна.",
 	[Key.bangumiUsername]: "Имя пользователя",
 	[Key.bangumiApi]: "API",
 	[Key.bangumiConfigTip]:
