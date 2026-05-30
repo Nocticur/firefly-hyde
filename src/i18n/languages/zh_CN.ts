@@ -415,14 +415,4 @@ export const zh_CN: Translation = {
 	[Key.passwordSubmit]: "解锁",
 	[Key.passwordError]: "密码错误，请重试。",
 	[Key.passwordProtectedRss]: "本文已加密保护，请访问网站查看。",
-
-	// 天气组件
-	[Key.weather]: "天气",
-	[Key.weatherLoading]: "加载中...",
-	[Key.weatherError]: "获取天气失败",
-	[Key.weatherHumidity]: "湿度",
-	[Key.weatherWind]: "风向",
-	[Key.weatherAqi]: "空气质量",
-	[Key.weatherUpdate]: "更新",
-	[Key.weatherForecast]: "未来预报",
 };

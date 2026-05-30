@@ -428,14 +428,4 @@ export const ru: Translation = {
 	[Key.passwordError]: "Неверный пароль, попробуйте снова.",
 	[Key.passwordProtectedRss]:
 		"Эта статья зашифрована. Пожалуйста, посетите сайт для просмотра.",
-
-	// Компонент погоды
-	[Key.weather]: "Погода",
-	[Key.weatherLoading]: "Загрузка...",
-	[Key.weatherError]: "Не удалось получить погоду",
-	[Key.weatherHumidity]: "Влажность",
-	[Key.weatherWind]: "Ветер",
-	[Key.weatherAqi]: "Индекс качества воздуха",
-	[Key.weatherUpdate]: "Обновлено",
-	[Key.weatherForecast]: "Прогноз",
 };

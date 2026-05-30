@@ -426,14 +426,4 @@ export const en: Translation = {
 	[Key.passwordError]: "Incorrect password, please try again.",
 	[Key.passwordProtectedRss]:
 		"This article is encrypted. Please visit the website to view it.",
-
-	// Weather Component
-	[Key.weather]: "Weather",
-	[Key.weatherLoading]: "Loading...",
-	[Key.weatherError]: "Failed to get weather",
-	[Key.weatherHumidity]: "Humidity",
-	[Key.weatherWind]: "Wind",
-	[Key.weatherAqi]: "AQI",
-	[Key.weatherUpdate]: "Updated",
-	[Key.weatherForecast]: "Forecast",
 };

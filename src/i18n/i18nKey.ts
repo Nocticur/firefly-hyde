@@ -413,16 +413,6 @@ enum I18nKey {
 	passwordSubmit = "passwordSubmit",
 	passwordError = "passwordError",
 	passwordProtectedRss = "passwordProtectedRss",
-
-	// 天气组件
-	weather = "weather",
-	weatherLoading = "weatherLoading",
-	weatherError = "weatherError",
-	weatherHumidity = "weatherHumidity",
-	weatherWind = "weatherWind",
-	weatherAqi = "weatherAqi",
-	weatherUpdate = "weatherUpdate",
-	weatherForecast = "weatherForecast",
 }
 
 export default I18nKey;

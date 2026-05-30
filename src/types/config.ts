@@ -436,8 +436,7 @@ export type WidgetComponentType =
 	| "stats"
 	| "calendar"
 	| "music"
-	| "schedule"
-	| "weather";
+	| "schedule";
 
 export type WidgetComponentConfig = {
 	type: WidgetComponentType; // 组件类型

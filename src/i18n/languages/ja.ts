@@ -425,14 +425,4 @@ export const ja: Translation = {
 	[Key.passwordError]: "パスワードが間違っています。もう一度お試しください。",
 	[Key.passwordProtectedRss]:
 		"この記事は暗号化されています。ウェブサイトにアクセスしてご覧ください。",
-
-	// 天気コンポーネント
-	[Key.weather]: "天気",
-	[Key.weatherLoading]: "読み込み中...",
-	[Key.weatherError]: "天気の取得に失敗しました",
-	[Key.weatherHumidity]: "湿度",
-	[Key.weatherWind]: "風向き",
-	[Key.weatherAqi]: "大気質",
-	[Key.weatherUpdate]: "更新",
-	[Key.weatherForecast]: "予報",
 };

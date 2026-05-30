@@ -417,14 +417,4 @@ export const zh_TW: Translation = {
 	[Key.passwordSubmit]: "解鎖",
 	[Key.passwordError]: "密碼錯誤，請重試。",
 	[Key.passwordProtectedRss]: "本文已加密保護，請訪問網站查看。",
-
-	// 天氣元件
-	[Key.weather]: "天氣",
-	[Key.weatherLoading]: "載入中...",
-	[Key.weatherError]: "取得天氣失敗",
-	[Key.weatherHumidity]: "濕度",
-	[Key.weatherWind]: "風向",
-	[Key.weatherAqi]: "空氣品質",
-	[Key.weatherUpdate]: "更新",
-	[Key.weatherForecast]: "預報",
 };
