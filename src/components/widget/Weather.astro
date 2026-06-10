@@ -210,7 +210,7 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 	.loading-spinner {
 		width: 2rem;
 		height: 2rem;
-		border: 2px solid var(--primary-light);
+		border: 2px solid var(--primary);
 		border-top-color: var(--primary);
 		border-radius: 50%;
 		animation: spin 0.8s linear infinite;
@@ -224,7 +224,7 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 
 	.loading-text {
 		font-size: 0.875rem;
-		color: var(--content-meta);
+		color: var(--primary);
 	}
 
 	/* 错误状态 */
@@ -245,7 +245,7 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 
 	.error-text {
 		font-size: 0.875rem;
-		color: var(--content-meta);
+		color: var(--primary);
 	}
 
 	.retry-btn {
@@ -340,7 +340,6 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 	.temperature {
 		font-size: 2.5rem;
 		font-weight: 700;
-		color: var(--content);
 		line-height: 1;
 	}
 
@@ -349,7 +348,7 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 		position: relative;
 		top: -1rem;
 		margin-left: 0.125rem;
-		color: var(--content-meta);
+		color: #999;
 	}
 
 	.weather-desc {
@@ -363,7 +362,6 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 		justify-content: center;
 		gap: 0.5rem;
 		font-size: 0.875rem;
-		color: var(--content-meta);
 	}
 
 	.temp-max {
@@ -375,7 +373,7 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 	}
 
 	.temp-divider {
-		color: var(--content-meta);
+		color: var(--primary);
 	}
 
 	.update-time {
@@ -384,8 +382,7 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 		justify-content: center;
 		gap: 0.25rem;
 		font-size: 0.75rem;
-		color: var(--content-meta);
-	}
+		}
 
 	.time-icon {
 		font-size: 0.875rem;
@@ -397,7 +394,8 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 		grid-template-columns: repeat(2, 1fr);
 		gap: 0.5rem;
 		padding-top: 0.5rem;
-		border-top: 1px dashed var(--border);
+		border-top: 1px dashed var(--primary);
+		justify-items: center;
 	}
 
 	.extended-item {
@@ -514,7 +512,6 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 
 	.aqi-level {
 		font-size: 0.75rem;
-		color: var(--content-meta);
 		margin-left: 0.25rem;
 	}
 
