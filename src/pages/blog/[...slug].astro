@@ -3,6 +3,7 @@ import { render } from "astro:content";
 import * as path from "node:path";
 import Comment from "@components/comment/index.astro";
 import Markdown from "@components/common/Markdown.astro";
+import AiSummary from "@/components/widget/AiSummary.astro";
 import EncryptedPost from "@components/features/EncryptedPost.astro";
 import KatexManager from "@components/features/KatexManager.astro";
 import License from "@components/misc/License.astro";
@@ -255,6 +256,16 @@ const relatedPosts = await getRelatedPosts(entry, 5);
               apiUrls={apiUrls}
             />
           </div>
+        )
+      }
+
+      {/* AI 摘要 - 打字机动画 */}
+      {
+        entry.data.description && (
+          <AiSummary
+            description={entry.data.description}
+            descriptionSource={entry.data.descriptionSource}
+          />
         )
       }
 

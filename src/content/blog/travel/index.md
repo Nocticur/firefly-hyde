@@ -2,12 +2,13 @@
 title: 年轻的时候是旅游重要还是攒钱重要？
 published: 2026-04-30
 pinned: false
-description: "年轻的时候是旅游重要还是攒钱重要？"
+description: "年轻时攒钱和旅行，哪样更重要？其实答案早藏在绿皮火车硬座上熬过的夜、青旅里聊梦想时眼睛里的光、还有那场说走就走却再难复制的少年远行里——体力可以练，钱可以再赚，但那种不顾一切奔向远方的心气，只属于那个夏天。人生不是非此即彼的选择题，而是：趁热，出发。"
 image: ./DaguGlacier.webp
 slug: /travel
 tags: ["旅游"]
 category: 旅行
 draft: false
+descriptionSource: ai
 ---
 
 ## 独特价值

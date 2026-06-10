@@ -2,12 +2,14 @@
 title: Umami 访问统计卡片
 published: 2026-06-02
 pinned: false
-description: "本文详细教程了如何在 Fuwari 博客中通过逆向 Umami 网站统计，实现访问量、访问次数和独立访客数据的小卡片实时显示"
+description: "最近给博客侧边栏加了个小彩蛋——Umami 访问统计卡片，不用后端、不破风格，数据实时还带点击跳转。整个过程就是在 Firefly 主题里新建一个组件，填入 Umami 的分享链接，系统自动解析 API 和 Token，再配个备用数据兜底。连统计周期都能按需调，比如改成最近 30 天，改个毫秒数就完事～现在每次打开博客，侧边栏都默默告诉我：“今天又被看了好多眼”。"
 image: api
 slug: /UmamiStats
 tags: ["Firefly"]
 category: Firefly
 draft: false
+descriptionSource: ai
+
 ---
 
 > [!NOTE] 提示
