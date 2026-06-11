@@ -20,6 +20,7 @@ import { pluginCollapsible } from "expressive-code-collapsible"; /* Collapsible 
 import { pluginLanguageBadge } from "expressive-code-language-badge"; /* Language Badge */
 import rehypeCallouts from "rehype-callouts";
 import rehypeSlug from "rehype-slug";
+import remarkAdmonitionToBlockquoteCallout from "remark-admonition-to-blockquote-callout";
 import remarkDirective from "remark-directive"; /* Handle directives */
 import remarkMath from "remark-math";
 import remarkSectionize from "remark-sectionize";
@@ -209,6 +210,9 @@ export default defineConfig({
 	markdown: {
 		processor: unified({
 			remarkPlugins: [
+				...(siteConfig.post.rehypeCallouts.enablePythonMarkdownAdmonitions !== false
+					? [remarkAdmonitionToBlockquoteCallout]
+					: []),
 				remarkMath,
 				remarkReadingTime,
 				remarkImageGrid,
@@ -221,7 +225,7 @@ export default defineConfig({
 			],
 			rehypePlugins: [
 				[rehypeKatex, { katex }],
-				[rehypeCallouts, { theme: siteConfig.rehypeCallouts.theme }],
+				[rehypeCallouts, { theme: siteConfig.post.rehypeCallouts.theme }],
 				rehypeSlug,
 				rehypeMermaid,
 				rehypePlantuml,
@@ -271,19 +275,17 @@ export default defineConfig({
 		},
 		resolve: {
 			alias: {
-				"@rehype-callouts-theme": `rehype-callouts/theme/${siteConfig.rehypeCallouts.theme}`,
+				"@rehype-callouts-theme": `rehype-callouts/theme/${siteConfig.post.rehypeCallouts.theme}`,
 			},
 		},
 		build: {
 			minify: "esbuild",
 			esbuildOptions: {
 				minify: true,
-				minifyWhitespace: true,
-				minifyIdentifiers: true,
-				// 移除 console.log 和 debugger
-				drop: ["console", "debugger"],
-				// 目标浏览器支持
-				target: "es2020",
+				// 删除 debugger 语句；console.log / console.debug 无副作用，未使用返回值时会被 dead code elimination 移除，
+				// console.warn / console.error 保留，确保生产环境出错时仍有日志可查
+				drop: ["debugger"],
+				pure: ["console.log", "console.debug"],
 			},
 			rollupOptions: {
 				onwarn(warning, warn) {
@@ -314,3 +316,4 @@ export default defineConfig({
 		},
 	},
 });
+

@@ -1,4 +1,4 @@
-import type { SidebarLayoutConfig } from "../types/config";
+import type { SidebarLayoutConfig } from "../types/sidebarConfig";
 
 /**
  * 侧边栏布局配置
@@ -28,11 +28,11 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 	// 组件的渲染顺序完全取决于它们在配置数组中出现的顺序，但top的组件会优先于sticky位置的组件渲染
 	// type 组件类型
 	// enable 是否启用该组件
+	// showTitle 是否显示该组件标题，默认true
 	// position 组件位置：top固定顶部，sticky粘性定位(会跟随页面滚动)
 	// showOnPostPage 是否在文章详情页显示该组件
 	// showOnNonPostPage 是否在非文章详情页显示该组件（除文章详情页外都显示）
-	// configId 组件配置ID（目前仅广告组件使用），用于区分不同的广告配置
-	// responsive 响应式配置（部分组件可用，可用来设定部分组件需要的参数）
+	// specificConfig 组件专属配置
 	leftComponents: [
 		{
 			// 组件类型：用户资料组件
@@ -47,16 +47,6 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 		{
 			// 组件类型：公告组件
 			type: "announcement",
-			// 是否启用该组件
-			enable: true,
-			// 组件位置
-			position: "top",
-			// 是否在文章详情页显示
-			showOnPostPage: true,
-		},
-		{
-			// 组件类型：Umami 统计组件
-			type: "umamiStats",
 			// 是否启用该组件
 			enable: true,
 			// 组件位置
@@ -83,8 +73,8 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			position: "sticky",
 			// 是否在文章详情页显示
 			showOnPostPage: true,
-			// 响应式配置
-			responsive: {
+			// 组件专属配置
+			specificConfig: {
 				// 折叠阈值：当分类数量超过>5个时自动折叠
 				collapseThreshold: 5,
 			},
@@ -98,35 +88,29 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			position: "sticky",
 			// 是否在文章详情页显示
 			showOnPostPage: true,
-			// 响应式配置
-			responsive: {
+			// 组件专属配置
+			specificConfig: {
 				// 折叠阈值：当标签数量超过>10个时自动折叠
 				collapseThreshold: 10,
 			},
 		},
 		{
-			// 组件类型：广告栏组件 1
-			type: "advertisement",
+			// 组件类型：Umami 统计组件
+			type: "umamiStats",
 			// 是否启用该组件
-			enable: false,
+			enable: true,
 			// 组件位置
 			position: "sticky",
 			// 是否在文章详情页显示
 			showOnPostPage: true,
-			// 配置ID：使用第一个广告配置
-			configId: "ad1",
 		},
-	],
-
-	// 右侧边栏组件配置列表
-	rightComponents: [
 		{
 			// 组件类型：恋爱计时小组件
 			type: "relationship",
 			// 是否启用该组件
 			enable: true,
 			// 组件位置
-			position: "top",
+			position: "sticky",
 			// 是否在文章详情页显示
 			showOnPostPage: true,
 		},
@@ -136,13 +120,17 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			// 是否启用该组件
 			enable: true,
 			// 组件位置
-			position: "top",
+			position: "sticky",
 			// 是否在文章详情页显示
 			showOnPostPage: true,
 		},
+	],
+
+	// 右侧边栏组件配置列表
+	rightComponents: [
 		{
-			// 组件类型：天气组件
-			type: "weather",
+			// 组件类型：站点统计组件
+			type: "stats",
 			// 是否启用该组件
 			enable: true,
 			// 组件位置
@@ -151,8 +139,8 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			showOnPostPage: true,
 		},
 		{
-			// 组件类型：站点统计组件
-			type: "stats",
+			// 组件类型：站点信息组件
+			type: "siteInfo",
 			// 是否启用该组件
 			enable: true,
 			// 组件位置
@@ -165,25 +153,19 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			type: "calendar",
 			// 是否启用该组件
 			enable: true,
+			// 是否显示组件标题
+			showTitle: false,
 			// 组件位置
 			position: "sticky",
 			// 是否在文章详情页显示
 			showOnPostPage: false,
-			// 响应式配置
-			responsive: {
-				// 是否显示年度文章热力图
-				showHeatmap: true,
+			// 组件专属配置
+			specificConfig: {
+				calendar: {
+					// 是否显示年度文章热力图
+					showHeatmap: true,
+				},
 			},
-		},
-		{
-			// 组件类型：时间进度组件
-			type: "schedule",
-			// 是否启用该组件
-			enable: true,
-			// 组件位置
-			position: "sticky",
-			// 是否在文章详情页显示
-			showOnPostPage: false,
 		},
 		{
 			// 组件类型：侧边栏目录组件（只在文章详情页显示）
@@ -198,6 +180,37 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			showOnNonPostPage: false,
 		},
 		{
+			// 组件类型：广告栏组件 1
+			type: "advertisement",
+			// 是否启用该组件
+			enable: false,
+			// 是否显示组件标题
+			showTitle: false,
+			// 组件位置
+			position: "sticky",
+			// 是否在文章详情页显示
+			showOnPostPage: true,
+			// 组件专属配置（广告内容直接在此配置）
+			specificConfig: {
+				ad: {
+					image: {
+						src: "/assets/images/ad/ad1.webp",
+						alt: "广告横幅",
+						link: "https://haoka.lot-ml.com/plugreg.html?agentid=1423316",
+						external: true,
+					},
+					// 是否允许关闭广告
+					closable: false,
+					// 显示次数限制，-1为无限制
+					displayCount: -1,
+					// 组件内边距配置
+					padding: {
+						all: "1rem",
+					},
+				},
+			},
+		},
+		{
 			// 组件类型：广告栏组件 2
 			type: "advertisement",
 			// 是否启用该组件
@@ -206,8 +219,41 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			position: "sticky",
 			// 是否在文章详情页显示
 			showOnPostPage: true,
-			// 配置ID：使用第二个广告配置
-			configId: "ad2",
+			// 组件专属配置（广告内容直接在此配置）
+			specificConfig: {
+				ad: {
+					title: "支持博主",
+					content:
+						"如果您觉得本站内容对您有帮助，欢迎支持我们的创作！您的支持是我们持续更新的动力。",
+					link: {
+						text: "支持一下",
+						url: "about/",
+						external: false,
+					},
+					closable: false,
+					displayCount: -1,
+				},
+			},
+		},
+				{
+			// 组件类型：时间进度组件
+			type: "schedule",
+			// 是否启用该组件
+			enable: true,
+			// 组件位置
+			position: "sticky",
+			// 是否在文章详情页显示
+			showOnPostPage: false,
+		},
+		{
+			// 组件类型：天气组件
+			type: "weather",
+			// 是否启用该组件
+			enable: true,
+			// 组件位置
+			position: "sticky",
+			// 是否在文章详情页显示
+			showOnPostPage: true,
 		},
 	],
 
@@ -237,8 +283,8 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			enable: true,
 			// 是否在文章详情页显示
 			showOnPostPage: true,
-			// 响应式配置
-			responsive: {
+			// 组件专属配置
+			specificConfig: {
 				// 折叠阈值：当分类数量超过5个时自动折叠
 				collapseThreshold: 5,
 			},
@@ -250,15 +296,23 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			enable: true,
 			// 是否在文章详情页显示
 			showOnPostPage: true,
-			// 响应式配置
-			responsive: {
+			// 组件专属配置
+			specificConfig: {
 				// 折叠阈值：当标签数量超过20个时自动折叠
-				collapseThreshold: 20,
+				collapseThreshold: 10,
 			},
 		},
 		{
 			// 组件类型：站点统计组件
 			type: "stats",
+			// 是否启用该组件
+			enable: true,
+			// 是否在文章详情页显示
+			showOnPostPage: true,
+		},
+		{
+			// 组件类型：站点信息组件
+			type: "siteInfo",
 			// 是否启用该组件
 			enable: true,
 			// 是否在文章详情页显示

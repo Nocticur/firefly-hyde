@@ -1,72 +1,61 @@
 import {
-	LinkPreset,
 	type NavBarConfig,
 	type NavBarLink,
 	type NavBarSearchConfig,
 	NavBarSearchMethod,
-} from "../types/config";
-import { siteConfig } from "./siteConfig";
+} from "../types/navBarConfig";
 
-// 根据页面开关动态生成导航栏配置
+// ============================================================================
+// 导航栏配置 - 根据顺序动态生成导航栏链接
+// NavBar Configuration - Dynamically generate navigation bar links based on order
+// ============================================================================
 const getDynamicNavBarConfig = (): NavBarConfig => {
 	// 基础导航栏链接
-	const links: (NavBarLink | LinkPreset)[] = [
+	const links: NavBarLink[] = [
 		// 主页
-		LinkPreset.Home,
-
-		// 文章分类
-		// {
-		// 	name: "分类",
-		// 	url: "/categories/",
-		// 	icon: "material-symbols:folder-open",
-		// },
-		
-		// // 归档
-		// LinkPreset.Archive,
+		LinkPresets.Home,
 	];
 
 	// 文章及其子菜单
 	links.push({
 		name: "文章",
-		url: "/post/",
-		icon: "material-symbols:article-rounded",
+		url: "#",
+		icon: "material-symbols:article",
 		children: [
 			// 归档
-			LinkPreset.Archive,
+			LinkPresets.Archive,
+
 			// 分类
-			LinkPreset.Categories,
+			LinkPresets.Categories,
+
 			// 标签
-			LinkPreset.Tags,
+			LinkPresets.Tags,
 		],
 	});
 
-	// 根据配置决定是否添加友链，在siteConfig关闭pages.friends时导航栏不显示友链
-	if (siteConfig.pages.friends) {
-		links.push(LinkPreset.Friends);
-	}
+	// 友链
+	links.push(LinkPresets.Friends);
 
-	// 根据配置决定是否添加留言板，在siteConfig关闭pages.guestbook时导航栏不显示留言板
-	if (siteConfig.pages.guestbook) {
-		links.push(LinkPreset.Guestbook);
-	}
+	// 留言板
+	links.push(LinkPresets.Guestbook);
 
 	// 我的及其子菜单
 	links.push({
 		name: "我的",
-		url: "/my/",
+		url: "#",
 		icon: "material-symbols:person",
 		children: [
-			// 根据配置决定是否添加番组计划，在siteConfig关闭pages.bangumi时导航栏不显示番组计划
-			...(siteConfig.pages.bangumi ? [LinkPreset.Bangumi] : []),
+			// 相册
+			LinkPresets.Gallery,
 
-			// 根据配置决定是否添加设备，在siteConfig关闭pages.devices时导航栏不显示设备
-			...(siteConfig.pages.devices ? [LinkPreset.Devices] : []),
+			// 番组计划
+			LinkPresets.Bangumi,
 
-			// 根据配置决定是否添加相册，在siteConfig关闭pages.gallery时导航栏不显示相册
-			...(siteConfig.pages.gallery ? [LinkPreset.Gallery] : []),
+			// 设备
+			LinkPresets.Devices,
 
-			// 根据配置决定是否添加日记，在siteConfig关闭pages.diary时导航栏不显示日记
-			...(siteConfig.pages.diary ? [LinkPreset.Diary] : []),
+			// 日记
+			LinkPresets.Diary,
 		],
 	});
 
@@ -76,28 +65,28 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		url: "/content/",
 		icon: "material-symbols:info",
 		children: [
-			// 根据配置决定是否添加赞助，在siteConfig关闭pages.sponsor时导航栏不显示赞助
-			...(siteConfig.pages.sponsor ? [LinkPreset.Sponsor] : []),
+			// 赞助
+			LinkPresets.Sponsor,
 
 			// 关于页面
-			LinkPreset.About,
+			LinkPresets.About,
 		],
 	});
 
-	// 其他及其子菜单
+	// 关于及其子菜单
 	links.push({
 		name: "其他",
 		url: "/other/",
 		icon: "material-symbols:more-horiz",
 		children: [
-			// 根据配置决定是否添加项目，在siteConfig关闭pages.projects时导航栏不显示项目
-			...(siteConfig.pages.projects ? [LinkPreset.Projects] : []),
+			// 项目
+			LinkPresets.Projects,
 
-			// 根据配置决定是否添加时间线，在siteConfig关闭pages.timeline时导航栏不显示时间线
-			...(siteConfig.pages.timeline ? [LinkPreset.Timeline] : []),
+			// 时间线
+			LinkPresets.Timeline,
 
-			// 根据配置决定是否添加技能，在siteConfig关闭pages.skills时导航栏不显示技能
-			...(siteConfig.pages.skills ? [LinkPreset.Skills] : []),
+			// 技能
+			LinkPresets.Skills,
 
 			{
 				name: "统计",
@@ -108,12 +97,11 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
-	// 自定义导航栏链接,并且支持多级菜单
+	// 自定义导航栏链接
 	links.push({
 		name: "链接",
-		url: "/links/",
+		url: "#",
 		icon: "material-symbols:link",
-
 		// 子菜单
 		children: [
 			{
@@ -180,6 +168,88 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 // 导航搜索配置
 export const navBarSearchConfig: NavBarSearchConfig = {
 	method: NavBarSearchMethod.PageFind,
+};
+
+// ============================================================================
+// 链接预设 - 可自由自定义导航栏链接的名称、图标和URL
+// Link Presets - Allows free customization of the name, icon, and URL of navigation bar links
+// ============================================================================
+export const LinkPresets: Record<string, NavBarLink> = {
+	Home: {
+		name: "主页",
+		url: "/",
+		icon: "material-symbols:home",
+	},
+	Archive: {
+		name: "归档",
+		url: "/archive/",
+		icon: "material-symbols:archive",
+	},
+	Categories: {
+		name: "分类",
+		url: "/categories/",
+		icon: "material-symbols:folder-open-rounded",
+	},
+	Tags: {
+		name: "标签",
+		url: "/tags/",
+		icon: "material-symbols:tag-rounded",
+	},
+	Friends: {
+		name: "友链",
+		url: "/friends/",
+		icon: "material-symbols:group",
+	},
+	Sponsor: {
+		name: "赞助",
+		url: "/sponsor/",
+		icon: "material-symbols:favorite",
+	},
+	Guestbook: {
+		name: "留言",
+		url: "/guestbook/",
+		icon: "material-symbols:chat",
+	},
+	About: {
+		name: "关于我",
+		url: "/about/",
+		icon: "material-symbols:person",
+	},
+	Bangumi: {
+		name: "番组计划",
+		url: "/bangumi/",
+		icon: "material-symbols:movie",
+	},
+	Gallery: {
+		name: "相册",
+		url: "/gallery/",
+		icon: "material-symbols:photo-library",
+	},
+	Devices: {
+		name: "设备",
+		url: "/devices/",
+		icon: "material-symbols:devices",
+	},
+	Diary: {
+		name: "日记",
+		url: "/diary/",
+		icon: "material-symbols:book",
+	},
+	Projects: {
+		name: "项目",
+		url: "/projects/",
+		icon: "material-symbols:work",
+	},
+	Skills: {
+		name: "技能",
+		url: "/skills/",
+		icon: "material-symbols:psychology",
+	},
+	Timeline: {
+		name: "时间线",
+		url: "/timeline/",
+		icon: "material-symbols:timeline",
+	},
 };
 
 export const navBarConfig: NavBarConfig = getDynamicNavBarConfig();
