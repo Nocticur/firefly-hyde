@@ -64,7 +64,8 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 			</div>
 
 			<!-- 扩展信息（当 extended=true 时显示） -->
-			<div class="weather-extended" data-weather-extended>
+			<weather-extended-collapse>
+				<div class="weather-extended collapsed" data-weather-extended>
 				<!-- 第一行：风力和能见度 -->
 				<div class="extended-item">
 					<Icon name="material-symbols:air" class="extended-icon icon-wind" />
@@ -175,7 +176,11 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 					</div>
 				</div>
 			</div>
-
+			<button class="weather-extended-toggle-btn btn-plain rounded-lg w-full h-8 flex items-center justify-center gap-1.5 mt-1 text-(--primary) text-sm cursor-pointer">
+				<Icon name="material-symbols:keyboard-arrow-down-rounded" is:inline class="weather-extended-toggle-icon w-6 h-6 transition-transform duration-200" />
+				<span class="weather-extended-toggle-text">展开天气信息</span>
+			</button>
+			</weather-extended-collapse>
 			<!-- 更新时间 -->
 			<div class="update-time">
 				<Icon name="material-symbols:schedule" class="time-icon dark:text-neutral-100" />
@@ -393,8 +398,6 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 0.5rem;
-		padding-top: 0.5rem;
-		border-top: 1px dashed var(--primary);
 		justify-items: center;
 	}
 
@@ -565,6 +568,23 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 
 	:global(html.dark) .temperature {
 		color: #fff;
+	}
+</style>
+
+<style is:global>
+	.weather-extended.collapsed {
+		height: 0;
+		overflow: hidden;
+	}
+	.weather-extended-toggle-btn {
+		touch-action: manipulation;
+		-webkit-tap-highlight-color: transparent;
+	}
+	.weather-content > weather-extended-collapse {
+		order: 2;
+	}
+	.weather-content > .update-time {
+		order: 1;
 	}
 </style>
 
@@ -780,5 +800,40 @@ const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存
 
 		// 启动
 		document.querySelectorAll("[data-weather-init]").forEach(initWidget);
+
+		// 折叠/展开扩展信息
+		class WeatherExtendedCollapse extends HTMLElement {
+			constructor() {
+				super();
+				const detail = this.querySelector(".weather-extended");
+				const btn = this.querySelector(".weather-extended-toggle-btn");
+				const textEl = btn?.querySelector(".weather-extended-toggle-text");
+				const iconEl = btn?.querySelector(".weather-extended-toggle-icon");
+				if (!detail || !btn || !textEl) return;
+
+				let expanded = false;
+				textEl.textContent = "展开天气信息";
+
+				btn.addEventListener("click", () => {
+					expanded = !expanded;
+					detail.classList.toggle("collapsed", !expanded);
+					textEl.textContent = expanded ? "收起" : "展开天气信息";
+					iconEl?.classList.toggle("rotate-180", expanded);
+				});
+			}
+		}
+
+		// 延迟注册自定义元素，确保 DOM 已完全加载
+		function registerWeatherCollapse() {
+			if (!customElements.get("weather-extended-collapse")) {
+				customElements.define("weather-extended-collapse", WeatherExtendedCollapse);
+			}
+		}
+
+		if (document.readyState === "loading") {
+			document.addEventListener("DOMContentLoaded", registerWeatherCollapse);
+		} else {
+			registerWeatherCollapse();
+		}
 	})();
 </script>

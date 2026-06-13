@@ -232,6 +232,15 @@ export const friendsConfig: FriendLink[] = [
 		weight: 0,
 		enabled: true
 	},
+	{
+		title: "Eysnter",
+		desc: "你好",
+		siteurl: "https://blog.eysnter.cn/",
+		imgurl: "https://img.eysnter.cn/file/posts/icon/1780993886377_0122.webp",
+		tags: ["Astro"],
+		weight: 0,
+		enabled: true
+	},
 ];
 
 // 获取启用的友链并进行排序

@@ -1,4 +1,4 @@
-import type { RelationshipConfig } from "../types/config";
+import type { RelationshipConfig } from "../types/RelationshipConfig";
 
 export const relationshipConfig: RelationshipConfig = {
 	// 恋爱开始日期
