@@ -163,6 +163,12 @@ export type SiteConfig = {
 		}[];
 	};
 
+	devtoolsWarning: {
+        enable: boolean; // 是否启用
+        message?: string; // 提示信息内容，留空为默认
+        time?: number; // 提示信息显示时间，单位秒
+    };
+	
 	// 图片优化配置
 	imageOptimization?: {
 		/**

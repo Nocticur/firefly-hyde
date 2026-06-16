@@ -219,7 +219,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "读史可以明智,知古方能鉴今。",
 		siteurl: "https://com.z2m.store",
 		imgurl: "https://blog.z2m.store/_astro/xgg.rSbGMho9_Z1Y5OOT.webp",
-		tags: ["Astro"],
+		tags: ["Blog"],
 		weight: 0,
 		enabled: true
 	},

@@ -13,6 +13,7 @@ import ScrollDownIndicator from "@/components/controls/ScrollDownIndicator.astro
 import TypewriterText from "@/components/features/TypewriterText.astro";
 import CategoryBar from "@/components/layout/CategoryBar.astro";
 import WelcomeToast from "@components/widget/WelcomeToast.astro"; //欢迎提示组件
+import DevToolsWarning from "@components/features/DevToolsWarning.astro"; // 开发者工具提示信息组件
 
 import {
 	backgroundWallpaper,
@@ -900,6 +901,9 @@ const fullscreenCarouselInterval = Math.max(
     <div id="banner-dim-container" class="hidden"></div>
 </>
 )}
+
+<!-- {live2dModelConfig.enable && <Live2DWidget config={live2dModelConfig} />} -->
+{siteConfig.devtoolsWarning?.enable && <DevToolsWarning />}
 
 <!-- Main content -->
 <div class={`absolute w-full z-30 pointer-events-none ${mobileNonHomeBannerClass ? 'mobile-main-no-banner' : ''} ${!(isBannerMode && isBackgroundEnabled) ? 'no-banner-layout' : ''}`} style={isFullscreenMode ? 'top: 0;' : `top: ${finalMainPanelTop}`}>

@@ -124,7 +124,11 @@
    pnpm dev
    ```
    博客将在 `http://localhost:4321` 可用
-   
+
+### EdgeOne部署
+
+[![使用 EdgeOne Pages 部署](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://console.cloud.tencent.com/edgeone/pages/new?repository-url=https://cnb.cool/W3C/Hyde/Firefly-hyde)
+
 ### 社区教程
 Cloudflare Workers部署：[【不用服务器，无需备案，零成本搭建一个自己的个人博客】](https://www.bilibili.com/video/BV1hX9XBKEhm)
 

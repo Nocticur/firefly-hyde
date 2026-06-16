@@ -154,7 +154,7 @@ export const siteConfig: SiteConfig = {
 		// 提醒框（Admonitions）配置，修改后需要重启开发服务器才能生效
 		// 主题：'github' | 'obsidian' | 'vitepress' | 'docusaurus'，每个主题风格和语法不同，可根据喜好选择
 		rehypeCallouts: {
-			theme: "github",
+			theme: "vitepress",
 			// 是否启用兼容 Python-Markdown 风格的 admonition 语法（!!!和???语法）
 			// 注意：只有 theme 配置成 obsidian 主题才能基本支持这些语法，其他主题会有样式问题或不兼容的情况
 			enablePythonMarkdownAdmonitions: false,
@@ -229,5 +229,13 @@ export const siteConfig: SiteConfig = {
       { id: "17957661244", name: "孙燕姿", server: "netease" },
       { id: "17966019560", name: "告五人", server: "netease" },
     ],
+  },
+
+  // 启用开发者工具提示信息
+  devtoolsWarning: {
+    enable: true, // 是否启用
+    message:
+      "请按本站规定合法使用开发者工具", // 提示信息内容，留空为默认
+    time: 5, // 提示信息显示时间，单位秒
   },
 };
