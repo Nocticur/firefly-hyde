@@ -241,7 +241,7 @@ enum I18nKey {
 	postListLayoutGrid = "postListLayoutGrid",
 	postCoverImage = "postCoverImage",
 
-	// 赞助页面
+	// 打赏页面
 	sponsor = "sponsor",
 	sponsorTitle = "sponsorTitle",
 	sponsorDescription = "sponsorDescription",
