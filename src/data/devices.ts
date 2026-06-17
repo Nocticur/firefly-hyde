@@ -76,6 +76,14 @@ export const devicesData: DeviceCategory = {
 			price: "2359元",
 		},
 		{
+			name: "影石Insta360 Luna Ultra",
+			image: "/images/device/Insta360 Luna Ultra.webp",
+			specs: "创作者套装",
+			description: "昼夜清晰，远近随心",
+			link: "https://store.insta360.com/cn/product/luna-series",
+			price: "4849元",
+		},
+		{
 			name: "Osmo Pocket 4",
 			image: "/images/device/Osmo Pocket 4.webp",
 			specs: "标准套装",
@@ -84,12 +92,12 @@ export const devicesData: DeviceCategory = {
 			price: "2999元",
 		},
 		{
-			name: "影石Insta360 Luna Ultra",
-			image: "/images/device/Insta360 Luna Ultra.webp",
-			specs: "创作者套装",
-			description: "昼夜清晰，远近随心",
+			name: "Osmo Pocket 4P",
+			image: "/images/device/Osmo Pocket 4P.webp",
+			specs: "Vlog 套装",
+			description: "灵眸成双，远见非凡",
 			link: "https://store.insta360.com/cn/product/luna-series",
-			price: "4849元",
+			price: "4299元",
 		},
 	],
 	路由器: [

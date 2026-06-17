@@ -20,6 +20,7 @@ descriptionSource: ai
 - [ ] [添加ustat统计](https://tbmiao.dpdns.org/posts/ustat-tongji/)
 - [x] [Astro 集成 AI文章摘要](https://blog.tsh520.cn/posts/%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/ai%E6%91%98%E8%A6%81%E6%89%93%E5%AD%97%E6%9C%BA%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/)
 - [x] [天气组件](https://uapis.cn/docs/api-reference/get-misc-weather)
+- [x] [给你的Astro博客添加开发者工具提示信息功能](https://tbmiao.dpdns.org/posts/blogdevtoolswarning/)
 ## BUG
 
 - [x] 修复生产环境下顶部滚动条刷新页面不显示
