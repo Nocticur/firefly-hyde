@@ -121,7 +121,7 @@ const isBannerTitleSwitchable =
 	(backgroundWallpaper.common?.homeText?.switchable ?? false);
 // 是否允许用户切换横幅轮播
 const isBannerCarouselSwitchable =
-	backgroundWallpaper.banner?.carousel?.switchable ?? false;
+	backgroundWallpaper.common?.carousel?.switchable ?? false;
 // 是否允许用户切换全屏轮播
 const isFullscreenCarouselSwitchable =
 	backgroundWallpaper.fullscreen?.carousel?.switchable ?? false;

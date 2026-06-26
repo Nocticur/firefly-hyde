@@ -100,6 +100,7 @@ export type SiteConfig = {
 	momentsCover?: {
 		enable: boolean;
 		image?: string;
+		anime: boolean; // 追番页面开关
 	};
 
 	// 分类导航栏开关
@@ -150,6 +151,17 @@ export type SiteConfig = {
 		apiUrl?: string; // Bangumi API 地址
 		subjectBaseUrl?: string; // 条目详情页地址
 		categoryOrder?: ("anime" | "game" | "book" | "music" | "real")[]; // 条目类型排序顺序
+	};
+
+	// 追番配置（Bilibili + TMDB）
+	anime?: {
+		bilibili?: {
+			uid: string; // Bilibili 用户 UID
+		};
+		tmdb?: {
+			apiKey: string; // TMDB API Key
+			listId: string; // TMDB 列表 ID
+		};
 	};
 
 	// 分页配置

@@ -5,7 +5,7 @@ import MicrosoftClarity from "@components/analytics/MicrosoftClarity.astro";
 import UmamiAnalytics from "@components/analytics/UmamiAnalytics.astro";
 import CopyMessage from "@components/common/CopyMessage.svelte"; //复制内容提示组件
 import FancyboxManager from "@components/features/FancyboxManager.astro";
-import FontManager from "@components/features/FontManager.astro";
+import FontSetup from "@components/features/FontSetup.astro";
 import MusicManager from "@components/features/MusicManager.astro";
 import SakuraEffect from "@components/features/SakuraEffect.astro";
 import ScrollProgressBar from "@components/features/ScrollProgressBar.astro";
@@ -17,7 +17,6 @@ import {
 	analyticsConfig,
 	backgroundWallpaper,
 	expressiveCodeConfig,
-	fontConfig,
 	profileConfig,
 	siteConfig,
 } from "@/config";
@@ -481,7 +480,7 @@ const siteLang = lang.replace("_", "-");
               mainContentWrapper.style.setProperty("margin-top", "0", "important");
             } else if (wallpaperMode === WALLPAPER_BANNER && !isHomePage) {
               // 桌面端横幅模式非首页：与首页相同定位（保留grid transform）
-              mainContentWrapper.style.setProperty("top", "calc(var(--banner-height) - 3rem)", "important");
+              mainContentWrapper.style.setProperty("top", "calc(var(--banner-height) - 3.5rem)", "important");
               mainContentWrapper.style.position = "";
               mainContentWrapper.style.zIndex = "";
               mainContentWrapper.style.setProperty("margin-top", "0", "important");
@@ -553,8 +552,8 @@ const siteLang = lang.replace("_", "-");
       href={`${Astro.site}rss.xml`}
     />
 
-    <!-- Font Manager -->
-    <FontManager />
+    <!-- Font Setup (Astro Font API) -->
+    <FontSetup />
   </head>
   <body
     class="min-h-screen"
@@ -567,12 +566,6 @@ const siteLang = lang.replace("_", "-");
         "enable-card-border": siteConfig.card?.border,
         "card-follow-theme-hue": siteConfig.card?.followTheme,
       },
-      ...(fontConfig.enable && fontConfig.selected
-        ? (Array.isArray(fontConfig.selected)
-            ? fontConfig.selected
-            : [fontConfig.selected]
-          ).map((fontId) => `font-${fontId}-enabled`)
-        : []),
     ]}
   >
 
@@ -1004,7 +997,7 @@ function disableAnimation() {
 
       // 桌面端横幅模式：统一用banner高度定位，不改变grid transform
       if (!isMobileForBanner && currentMode === "banner" && mainEl) {
-        mainEl.style.setProperty("top", "calc(var(--banner-height) - 3rem)", "important");
+        mainEl.style.setProperty("top", "calc(var(--banner-height) - 3.5rem)", "important");
         mainEl.style.position = "";
         mainEl.style.zIndex = "";
         mainEl.style.setProperty("margin-top", "0", "important");
@@ -1193,7 +1186,7 @@ function disableAnimation() {
           }
           // 桌面端横幅模式：统一用banner高度定位，不改变grid transform
           if (visitDesktopMode === "banner") {
-            mainContentWrapper.style.setProperty("top", "calc(var(--banner-height) - 3rem)", "important");
+            mainContentWrapper.style.setProperty("top", "calc(var(--banner-height) - 3.5rem)", "important");
             mainContentWrapper.style.position = "";
             mainContentWrapper.style.zIndex = "";
             mainContentWrapper.style.setProperty("margin-top", "0", "important");
@@ -1279,7 +1272,7 @@ function disableAnimation() {
 
       // 桌面端横幅模式：统一用banner高度定位，不改变grid transform
       if (!isMobileForBanner && currentMode === "banner" && mainEl) {
-        mainEl.style.setProperty("top", "calc(var(--banner-height) - 3rem)", "important");
+        mainEl.style.setProperty("top", "calc(var(--banner-height) - 3.5rem)", "important");
         mainEl.style.position = "";
         mainEl.style.zIndex = "";
         mainEl.style.setProperty("margin-top", "0", "important");
@@ -1576,7 +1569,7 @@ function disableAnimation() {
       isPostPage ? widget.classList.add("hidden") : widget.classList.remove("hidden");
     });
 
-    // 处理 showOnNonPostPage === false 的组件
+    // 处理 hideOnNonPostPage === true 的组件
     document.querySelectorAll(".widget-hide-on-non-post").forEach((widget) => {
       !isPostPage ? widget.classList.add("hidden") : widget.classList.remove("hidden");
     });
