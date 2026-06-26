@@ -120,7 +120,7 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		children: [
 			{
 				name: "GitHub",
-				url: "https://github.com/Seasir-Hyde",
+				url: "https://github.com/Seasir-Hyde/Firefly-hyde",
 				external: true,
 				icon: "fa7-brands:github",
 			},

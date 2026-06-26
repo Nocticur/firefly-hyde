@@ -36,7 +36,7 @@ function joinUrl(...parts: string[]): string {
 export function getPostUrlBySlug(slug: string): string {
 	// 移除文件扩展名（如 .md, .mdx 等）
 	const slugWithoutExt = removeFileExtension(slug);
-	return url(`/blog/${slugWithoutExt}/`);
+	return url(`/posts/${slugWithoutExt}/`);
 }
 
 export function getTagUrl(tag: string): string {
