@@ -8,7 +8,7 @@ Firefly is an Astro 7 site with Svelte islands and TypeScript configuration. Mai
 
 Use `pnpm`; the `preinstall` script enforces it.
 
-- `pnpm dev` or `pnpm start`: run the local Astro dev server.
+- `pnpm dev`: run the local Astro dev server. This is the only allowed command for local preview and debugging.
 - `pnpm check`: run Astro diagnostics.
 - `pnpm type-check`: run TypeScript with `--noEmit`.
 - `pnpm format`: format `src` with Biome.
@@ -16,6 +16,18 @@ Use `pnpm`; the `preinstall` script enforces it.
 - `pnpm build`: generate icons, LQIPs, the Astro build, font subsets, and Pagefind search output in `dist`.
 - `pnpm preview`: preview the production build locally.
 - `pnpm new-post`: scaffold a new content post.
+
+### Local Startup Restrictions
+
+For local preview and debugging, start the framework's built-in development server with `pnpm dev` only (`astro dev` under the hood).
+
+Do not:
+
+- start or debug with Wrangler, Vercel CLI, Netlify CLI, or other third-party deploy CLIs
+- add wrapper scripts, custom launchers, or alternate local servers for preview/debug
+- enable `CF_WORKERS` for ordinary local development; the Cloudflare adapter expects a production `dist/_worker.js` and will break `pnpm dev` / `pnpm check`
+
+Use Wrangler only for production/deployment workflows after `pnpm build` has produced `dist`.
 
 ## Coding Style & Naming Conventions
 

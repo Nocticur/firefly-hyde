@@ -16,6 +16,8 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.dev.vars
+.dev.vars.*
 
 # macOS-specific files
 .DS_Store
@@ -39,3 +41,5 @@ package/
 .obsidian/
 .edgeone/
 scripts/fill-descriptions.ts
+# local dev data
+.data/

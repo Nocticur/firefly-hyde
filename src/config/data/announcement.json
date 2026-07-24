@@ -1,0 +1,11 @@
+{
+  "title": "📢 欢迎来访者",
+  "content": "👋🏻 Hi，我是Hyde，欢迎您！",
+  "closable": false,
+  "link": {
+    "enable": true,
+    "text": "了解更多",
+    "url": "/about/",
+    "external": false
+  }
+}

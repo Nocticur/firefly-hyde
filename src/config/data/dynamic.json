@@ -1,0 +1,7 @@
+{
+  "title": "",
+  "description": "",
+  "showComment": true,
+  "itemsPerPage": 20,
+  "apiUrl": "/api/dynamic.json"
+}

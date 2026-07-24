@@ -37,6 +37,28 @@ const specCollection = defineCollection({
 	schema: z.object({}),
 });
 
+const ziyuanCollection = defineCollection({
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/ziyuan" }),
+	schema: z.object({
+		title: z.string(),
+		quotes: z.array(
+			z.object({
+				text: z.string(),
+				author: z.string(),
+			}),
+		),
+	}),
+});
+
+const momentsCollection = defineCollection({
+	loader: glob({ pattern: "**/*.md", base: "./src/content/moments" }),
+	schema: z.object({
+		published: z.date(),
+		tags: z.array(z.string()).optional().default([]),
+		location: z.string().optional().default(""),
+	}),
+});
+
 const dynamicCollection = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "./src/content/dynamic" }),
 	schema: z.object({
@@ -44,8 +66,10 @@ const dynamicCollection = defineCollection({
 	}),
 });
 
-export const collections = {
+export const collections: Record<string, any> = {
 	dynamic: dynamicCollection,
+	moments: momentsCollection,
 	posts: postsCollection,
 	spec: specCollection,
+	ziyuan: ziyuanCollection,
 };

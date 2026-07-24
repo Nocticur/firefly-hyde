@@ -1,0 +1,16 @@
+---
+import AdminPage from "@/components/admin/AdminPage.astro";
+import { listResourceDescriptors } from "@/lib/admin/resourceRegistry";
+
+export function getStaticPaths() {
+	return [
+		...listResourceDescriptors().map((resource) => ({ params: { resource: resource.id } })),
+		{ params: { resource: "deployments" } },
+		{ params: { resource: "audit" } },
+	];
+}
+
+const route = Astro.params.resource ?? "dashboard";
+---
+
+<AdminPage route={route} />

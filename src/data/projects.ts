@@ -90,26 +90,26 @@ export const projectsData: Project[] = [
 ];
 
 // Get project statistics
-export const getProjectStats = () => {
-	const total = projectsData.length;
-	const completed = projectsData.filter((p) => p.status === "completed").length;
-	const inProgress = projectsData.filter(
+export const getProjectStats = (): { total: number; byStatus: { completed: number; inProgress: number; planned: number } } => {
+	const total: number = projectsData.length;
+	const completed: number = projectsData.filter((p) => p.status === "completed").length;
+	const inProgress: number = projectsData.filter(
 		(p) => p.status === "in-progress",
 	).length;
-	const planned = projectsData.filter((p) => p.status === "planned").length;
+	const planned: number = projectsData.filter((p) => p.status === "planned").length;
 
 	return {
-		total,
+		total: total,
 		byStatus: {
-			completed,
-			inProgress,
-			planned,
+			completed: completed,
+			inProgress: inProgress,
+			planned: planned,
 		},
 	};
 };
 
 // Get projects by category
-export const getProjectsByCategory = (category?: string) => {
+export const getProjectsByCategory = (category?: string): Project[] => {
 	if (!category || category === "all") {
 		return projectsData;
 	}
@@ -117,12 +117,12 @@ export const getProjectsByCategory = (category?: string) => {
 };
 
 // Get featured projects
-export const getFeaturedProjects = () => {
+export const getFeaturedProjects = (): Project[] => {
 	return projectsData.filter((p) => p.featured);
 };
 
 // Get all tech stacks
-export const getAllTechStack = () => {
+export const getAllTechStack = (): string[] => {
 	const techSet = new Set<string>();
 	projectsData.forEach((project) => {
 		project.techStack.forEach((tech) => {

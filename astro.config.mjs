@@ -55,6 +55,9 @@ if (process.env.NODE_ENV === "development") {
 	setMaxListeners(20);
 }
 
+// Local preview/debug must use Astro's built-in dev server (`pnpm dev`).
+// Do not enable Cloudflare/Wrangler for local startup: wrangler.jsonc points at
+// dist/_worker.js which only exists after a production build.
 const adapter = process.env.CF_WORKERS
 	? cloudflare({
 			prerenderEnvironment: "node",

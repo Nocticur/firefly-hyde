@@ -1,0 +1,17 @@
+{
+  "themeColorSwitchable": true,
+  "layoutSwitchable": true,
+  "cardBorderSwitchable": true,
+  "cardFollowThemeSwitchable": true,
+  "wallpaperModeSwitchable": true,
+  "wavesSwitchable": true,
+  "gradientSwitchable": true,
+  "bannerTitleSwitchable": true,
+  "bannerCarouselSwitchable": true,
+  "overlaySwitchable": {
+    "opacity": true,
+    "blur": true,
+    "cardOpacity": true
+  },
+  "sakuraSwitchable": true
+}

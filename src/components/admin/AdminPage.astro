@@ -1,0 +1,26 @@
+---
+import AdminApp from "./AdminApp.svelte";
+import "./styles/theme.css";
+
+interface Props {
+	route?: string;
+}
+
+const { route = "dashboard" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="color-scheme" content="dark" />
+		<title>Firefly 后台管理</title>
+		<style>
+			html, body { margin: 0; background: #0b0f1a; color: #e2e8f0; }
+		</style>
+	</head>
+	<body>
+		<AdminApp client:only="svelte" initialRoute={route} />
+	</body>
+</html>

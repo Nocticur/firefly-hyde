@@ -2,7 +2,18 @@
 // 每个笔记本有独立的 Gist 仓库，避免单个 Gist 空间不足
 // 与说说后端共用同一套认证机制
 
-export const externalNotebooksConfig = {
+export const externalNotebooksConfig: {
+	enable: boolean;
+	notebookGists: Record<string, string>;
+	templates: Array<{
+		id: string;
+		icon: string;
+		name: string;
+		title: string;
+		content: string;
+	} & Record<string, unknown>>;
+	githubToken: string;
+} = {
 	// 是否启用外部笔记数据源
 	enable: true,
 
@@ -10,12 +21,12 @@ export const externalNotebooksConfig = {
 	// 在 https://gist.github.com 创建 Secret Gist，文件名 notebooks-entries.json，内容 []
 	// 创建后把 Gist ID 填在对应笔记本名后面
 	notebookGists: {
-		每日总结: "85e22c520b3ea86d80d0a2f7f5154a67",
-		日记本: "04da78da60cd6363041605ee65f56bdb",
-		日常随笔: "a3707e728f5797612a0b8a9560035686",
-		喜马拉雅: "f189e7928f9d5e98700eb17c0b5853fa",
-		我和宝宝的日常: "5cabb89043f03efa0099f828505fd9ea",
-		记录100件事: "05da9de9c20e47f14849a4937b715d65",
+		"每日总结": "85e22c520b3ea86d80d0a2f7f5154a67",
+		"日记本": "04da78da60cd6363041605ee65f56bdb",
+		"日常随笔": "a3707e728f5797612a0b8a9560035686",
+		"喜马拉雅": "f189e7928f9d5e98700eb17c0b5853fa",
+		"我和宝宝的日常": "5cabb89043f03efa0099f828505fd9ea",
+		"记录100件事": "05da9de9c20e47f14849a4937b715d65",
 	} as Record<string, string>,
 
 	// 笔记模板（Admin 页面快速选择）
@@ -73,10 +84,6 @@ export const externalNotebooksConfig = {
 		content: string;
 	}>,
 
-	// 后台登录密码的 SHA-256 哈希（与说说后台共用同一密码）
-	adminPasswordHash:
-		"b5d9ded2ab2812e8653f06fc4d3246a4b13642e8371bc74a7f1003eb4fb4e637",
-
-	// GitHub Token（优先从环境变量 GITHUB_TOKEN 读取）
+	// GitHub Token（从环境变量 GITHUB_TOKEN 读取，不再存入源码）
 	githubToken: process.env.GITHUB_TOKEN || "",
 };

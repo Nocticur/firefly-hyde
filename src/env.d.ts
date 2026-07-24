@@ -4,6 +4,14 @@
 declare global {
 	interface ImportMetaEnv {
 		readonly MEILI_MASTER_KEY: string;
+		readonly ADMIN_USERNAME: string;
+		readonly ADMIN_PASSWORD: string;
+		readonly ADMIN_PASSWORD_HASH: string;
+		readonly GITHUB_OWNER: string;
+		readonly GITHUB_REPO: string;
+		readonly GITHUB_BRANCH: string;
+		readonly IMG_BED_URL: string;
+		readonly IMG_BED_TOKEN: string;
 	}
 
 	interface ITOCManager {
@@ -34,5 +42,6 @@ declare global {
 		initSemifullScrollDetection?: () => void;
 	}
 }
+
 
 export {};

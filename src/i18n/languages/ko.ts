@@ -14,6 +14,7 @@ export const ko: Translation = {
 	[Key.searchViewMore]: "더 많은 결과 보기 ({count}개 더)",
 	[Key.other]: "기타",
 	[Key.all]: "전체",
+	[Key.friendsFilterAll]: "전체",
 
 	[Key.tags]: "태그",
 	[Key.categories]: "카테고리",
@@ -108,6 +109,7 @@ export const ko: Translation = {
 	[Key.readTime]: "읽는 시간",
 	[Key.license]: "라이선스",
 	[Key.bangumi]: "반구미",
+	[Key.moments]: "일상",
 
 	// Bangumi Filter and Status Text
 	[Key.bangumiTitle]: "나의 반구미",
@@ -391,6 +393,7 @@ export const ko: Translation = {
 	[Key.copied]: "복사됨",
 	[Key.copyLink]: "링크 복사",
 	[Key.savePoster]: "포스터 저장",
+	[Key.postCoverImage]: "커버 이미지",
 	[Key.scanToRead]: "스캔하여 읽기",
 
 	// Code Block Collapsible Configuration
@@ -407,6 +410,105 @@ export const ko: Translation = {
 	[Key.galleryNoAlbums]: "아직 앨범이 없습니다",
 	[Key.galleryBackToAlbums]: "앨범으로 돌아가기",
 	[Key.searchAlbums]: "앨범 검색...",
+	[Key.albumsFilterAll]: "전체",
+
+
+	// Diary Page
+	[Key.diary]: "일기",
+	[Key.diarySubtitle]: "삶을 나누고, 언제 어디서나",
+	[Key.diaryNoResults]: "일치하는 일기가 없습니다",
+	[Key.diaryCount]: "항목",
+	[Key.diaryTips]: "최근 30개의 일기 항목만 표시합니다",
+	[Key.diaryMinutesAgo]: "분 전",
+	[Key.diaryHoursAgo]: "시간 전",
+	[Key.diaryDaysAgo]: "일 전",
+
+	// Devices Page
+	[Key.devices]: "내 기기",
+	[Key.devicesSubtitle]: "일상에서 사용하는 기기들입니다",
+	[Key.devicesViewDetails]: "상세 보기",
+
+	[Key.albumsPhotoCount]: "장",
+	[Key.albumsPhotosCount]: "장",
+	[Key.albumsNoResults]: "일치하는 앨범이 없습니다",
+
+
+	// Projects Page
+	[Key.projects]: "프로젝트",
+	[Key.projectsSubtitle]: "내 개요 프로젝트 포트폴리오",
+	[Key.projectsAll]: "전체",
+	[Key.projectsWeb]: "웹 애플리케이션",
+	[Key.projectsMobile]: "모바일 애플리케이션",
+	[Key.projectsDesktop]: "데스크톱 애플리케이션",
+	[Key.projectsOther]: "기타",
+	[Key.projectTechStack]: "기술 스택",
+	[Key.projectLiveDemo]: "라이브 데모",
+	[Key.projectSourceCode]: "소스 코드",
+	[Key.projectDescription]: "프로젝트 설명",
+	[Key.projectStatus]: "상태",
+	[Key.projectStatusCompleted]: "완료",
+	[Key.projectStatusInProgress]: "진행 중",
+	[Key.projectStatusPlanned]: "계획됨",
+	[Key.projectsTotal]: "총 프로젝트",
+	[Key.projectsCompleted]: "완료",
+	[Key.projectsInProgress]: "진행 중",
+	[Key.projectsTechStack]: "기술 스택 통계",
+	[Key.projectsFeatured]: "주요 프로젝트",
+	[Key.projectsPlanned]: "계획됨",
+	[Key.projectsDemo]: "라이브 데모",
+	[Key.projectsSource]: "소스 코드",
+	[Key.projectsVisit]: "프로젝트 방문",
+	[Key.projectsGitHub]: "GitHub",
+
+
+	// Skills Page
+	[Key.skills]: "기술",
+	[Key.skillsSubtitle]: "내 기술력과 전문 지식",
+	[Key.skillsFrontend]: "프론트엔드 개발",
+	[Key.skillsBackend]: "백엔드 개발",
+	[Key.skillsDatabase]: "데이터베이스",
+	[Key.skillsTools]: "개발 도구",
+	[Key.skillsOther]: "기타 기술",
+	[Key.skillLevel]: "숙련도",
+	[Key.skillLevelBeginner]: "초급",
+	[Key.skillLevelIntermediate]: "중급",
+	[Key.skillLevelAdvanced]: "고급",
+	[Key.skillLevelExpert]: "전문가",
+	[Key.skillExperience]: "경력",
+	[Key.skillYears]: "년",
+	[Key.skillMonths]: "개월",
+	[Key.skillsTotal]: "총 기술",
+	[Key.skillsExpert]: "전문가 수준",
+	[Key.skillsAdvanced]: "고급",
+	[Key.skillsIntermediate]: "중급",
+	[Key.skillsBeginner]: "초급",
+	[Key.skillsAdvancedTitle]: "전문 기술",
+	[Key.skillsProjects]: "관련 프로젝트",
+	[Key.skillsDistribution]: "기술 분포",
+	[Key.skillsByLevel]: "수준별",
+	[Key.skillsByCategory]: "카테고리별",
+
+
+	// Timeline Page
+	[Key.timeline]: "타임라인",
+	[Key.timelineSubtitle]: "나의 성장 여정과 중요한 이정표",
+	[Key.timelineEducation]: "학력",
+	[Key.timelineWork]: "경력",
+	[Key.timelineProject]: "프로젝트 경험",
+	[Key.timelineAchievement]: "성과",
+	[Key.timelinePresent]: "현재",
+	[Key.timelineLocation]: "위치",
+	[Key.timelineDescription]: "상세 설명",
+	[Key.timelineMonths]: "개월",
+	[Key.timelineYears]: "년",
+	[Key.timelineTotal]: "총",
+	[Key.timelineProjects]: "프로젝트",
+	[Key.timelineExperience]: "경력",
+	[Key.timelineCurrent]: "현재 상태",
+	[Key.timelineHistory]: "이력",
+	[Key.timelineAchievements]: "성과",
+	[Key.timelineStartDate]: "시작일",
+	[Key.timelineDuration]: "기간",
 
 	// Password Protection
 	[Key.passwordProtected]: "비밀번호로 보호됨",

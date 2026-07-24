@@ -1,8 +1,25 @@
 {
 	"name": "firefly",
+	"account_id": "",
 	"compatibility_date": "2025-01-01",
 	"compatibility_flags": ["nodejs_compat"],
+	"main": "./dist/_worker.js",
 	"assets": {
-		"directory": "./dist"
-	}
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"d1_databases": [
+		{
+			"binding": "ADMIN_DB",
+			"database_name": "firefly-admin",
+			"database_id": "",
+			"migrations_dir": "migrations"
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "ADMIN_CACHE",
+			"id": ""
+		}
+	]
 }

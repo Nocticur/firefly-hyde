@@ -99,7 +99,7 @@ const diaryData: DiaryItem[] = [
 ];
 
 // 获取日记列表（按时间倒序）
-export const getDiaryList = (limit?: number) => {
+export const getDiaryList = (limit?: number): DiaryItem[] => {
 	const sortedData = [...diaryData].sort(
 		(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
 	);
@@ -112,7 +112,7 @@ export const getDiaryList = (limit?: number) => {
 };
 
 // 获取所有标签
-export const getAllTags = () => {
+export const getAllTags = (): string[] => {
 	const tags = new Set<string>();
 	diaryData.forEach((item) => {
 		if (item.tags) {

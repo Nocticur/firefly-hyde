@@ -9,7 +9,8 @@
     "build": "npx tsx scripts/generate-lqips.ts && astro build && npx tsx scripts/subset-fonts.ts && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "type-check": "tsc --noEmit --isolatedDeclarations",
+		"type-check": "tsc --noEmit --isolatedDeclarations",
+		"test": "tsx --test \"src/**/*.test.ts\"",
     "new-dynamic": "tsx scripts/new-dynamic.js",
     "new-d": "tsx scripts/new-dynamic.js",
     "new-post": "node scripts/new-post.js",
@@ -80,7 +81,8 @@
     "tsx": "^4.23.0",
     "typescript": "^6.0.3",
     "unist-util-visit": "^5.1.0",
-    "wrangler": "^4.107.1"
+    "wrangler": "^4.107.1",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.10",
@@ -94,9 +96,9 @@
     "@iconify-json/tdesign": "^1.2.14",
     "@iconify/types": "^2.0.0",
     "@rollup/plugin-yaml": "^4.1.2",
+    "@tailwindcss/vite": "^4.3.2",
     "@types/hast": "^3.0.4",
     "@types/mdast": "^4.0.4",
-    "@tailwindcss/vite": "^4.3.2",
     "@types/qrcode": "^1.5.6",
     "@types/sanitize-html": "^2.16.1",
     "postcss-import": "^16.1.1",

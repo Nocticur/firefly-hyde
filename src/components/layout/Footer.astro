@@ -13,7 +13,10 @@ try {
 	const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
 	themeVersion = packageJson.version;
 } catch (error) {
-	console.warn("读取 package.json 版本号失败:", error.message);
+	console.warn(
+		"读取 package.json 版本号失败:",
+		error instanceof Error ? error.message : String(error),
+	);
 }
 
 // 读取FooterConfig.html文件内容

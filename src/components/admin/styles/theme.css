@@ -1,0 +1,96 @@
+/* ============================================================
+ *  Firefly Admin — Design Tokens & Utility Classes
+ *  Deep Dark Blue Dashboard Theme
+ * ============================================================ */
+
+:root {
+  /* ── 色彩 ── */
+  --ff-bg-base: #0b0f1a;
+  --ff-bg-gradient-end: #0b0f1a;
+  --ff-surface: rgba(17, 25, 40, 0.75);
+  --ff-surface-solid: #111827;
+  --ff-text-primary: #e2e8f0;
+  --ff-text-secondary: #94a3b8;
+  --ff-text-muted: #64748b;
+  --ff-accent: #3b9eff;
+  --ff-accent-hover: #5ba8e8;
+  --ff-accent-soft: rgba(59, 158, 255, 0.15);
+  --ff-pink: #f472b6;
+  --ff-purple: #a78bfa;
+  --ff-success: #6ee7b7;
+  --ff-success-deep: #10b981;
+  --ff-warning: #fcd34d;
+  --ff-danger: #fca5a5;
+  --ff-danger-deep: #ef4444;
+  --ff-info: #93c5fd;
+  --ff-border: rgba(91, 168, 232, 0.08);
+  --ff-border-strong: rgba(91, 168, 232, 0.15);
+  --ff-sidebar-bg: #0d1321;
+  --ff-sidebar-active: rgba(91, 168, 232, 0.12);
+
+  /* ── 圆角 ── */
+  --ff-radius-sm: 8px;
+  --ff-radius-md: 12px;
+  --ff-radius-lg: 16px;
+  --ff-radius-pill: 999px;
+
+  /* ── 间距（4px 基准） ── */
+  --ff-space-1: 4px;
+  --ff-space-2: 8px;
+  --ff-space-3: 12px;
+  --ff-space-4: 16px;
+  --ff-space-5: 24px;
+  --ff-space-6: 32px;
+  --ff-space-7: 48px;
+  --ff-space-8: 64px;
+
+  /* ── 阴影 ── */
+  --ff-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --ff-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --ff-shadow-glow: 0 0 24px rgba(56, 129, 216, 0.25);
+  --ff-shadow-card: 0 1px 4px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.2);
+
+  /* ── 过渡 ── */
+  --ff-transition-fast: 120ms ease;
+  --ff-transition-base: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── 字体 ── */
+  --ff-font-base: "Inter", "Noto Sans SC", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --ff-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --ff-font-cute: "Chikushi Maru", cursive;
+}
+
+/* ── 工具类 ── */
+
+.ff-eyebrow {
+  margin: 0 0 var(--ff-space-2);
+  color: var(--ff-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ff-card {
+  background: var(--ff-surface);
+  border: 1px solid var(--ff-border);
+  border-radius: var(--ff-radius-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.ff-card-solid {
+  background: var(--ff-surface-solid);
+  border: 1px solid var(--ff-border);
+  border-radius: var(--ff-radius-lg);
+}
+
+/* ── 减弱动效 ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
